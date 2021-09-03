@@ -17,10 +17,10 @@ async function validateProjectID(req,res,next) {
         next
     }
 }
-async function validateProject(req,res,next) {
+function validateProject(req,res,next) {
     try{
-        const {name, description} = req.body
-        if (!name || !description){
+        const {name, description, completed} = req.body
+        if (!name || !description || completed == null){
             res.status(400).json({
                 message: "Missing valid name or description"
             })

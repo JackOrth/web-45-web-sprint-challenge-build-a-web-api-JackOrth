@@ -30,8 +30,7 @@ router.post('/', validateProject, (req,res,next)=>{
 } )
 
 router.put('/:id', validateProjectID, validateProject, (req, res, next)=>{
-    const completed = req.body
-    Projects.update(req.params.id, req.body, completed)
+    Projects.update(req.params.id, req.body)
     .then(()=>{
         return Projects.get(req.params.id)
     })
